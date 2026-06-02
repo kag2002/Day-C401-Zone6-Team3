@@ -1,6 +1,13 @@
 import argparse
 import time
 import sys
+# Force UTF-8 encoding on standard streams to prevent charmap errors on Windows
+if sys.platform.startswith('win'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except AttributeError:
+        pass
 import json
 from pathlib import Path
 from typing import List, Optional
